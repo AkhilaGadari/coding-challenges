@@ -1,11 +1,12 @@
 # Day 01 – Unstop 100 Days Coding Challenge
 Platform: Unstop  
+##Question:1
 Problem Link: https://unstop.com/code/challenge-assessment/250904?moduleId=372  
 
 Time Complexity: O(1)  
 Space Complexity: O(1)
 
-## Solution (Java)
+## Solution
 import java.util.Scanner;
 
 public class Main {
@@ -19,6 +20,61 @@ public class Main {
         String s = scanner.nextLine().trim();
         String result = determineColor(s);
         System.out.println(result);
+    }
+}
+
+
+
+
+
+
+
+ 
+##Question:2
+Problem Link: https://unstop.com/code/challenge-assessment/250196?moduleId=372
+
+Time Complexity: O(n + m) 
+Space Complexity: O(n + m)
+
+## Solution
+
+
+import java.util.*;
+
+public class Main {
+    public static void find_youngest_member(int n, int m, int[][] gifts) {
+       
+        int[] giver=new int[n+1];
+        int[] receive=new int[n+1];
+        for(int i=0;i<m;i++){
+            int a=gifts[i][0];
+            int b=gifts[i][1];
+
+            giver[a]++;
+            receive[b]++;
+
+        }
+        for(int i=1;i<=n;i++){
+            if(giver[i]==0 && receive[i]==n-1){
+               System.out.println(i);
+               return;
+            }
+           
+
+        }
+         System.out.println(-1);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int[][] gifts = new int[m][2];
+        for (int i = 0; i < m; i++) {
+            gifts[i][0] = scanner.nextInt();
+            gifts[i][1] = scanner.nextInt();
+        }
+        find_youngest_member(n, m, gifts);
     }
 }
 
