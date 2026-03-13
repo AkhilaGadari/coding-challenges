@@ -78,3 +78,51 @@ public class Main {
     }
 }
 
+
+
+##Question:3
+Problem Link: https://unstop.com/code/challenge-assessment/250739?moduleId=372
+
+Time Complexity: O(n) 
+Space Complexity: O(n)
+
+## Solution
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+        String[] arr = new String[N];
+
+        for(int i = 0; i < N; i++){
+            arr[i] = sc.next();
+        }
+
+        int k = sc.nextInt();
+
+        HashMap<String,Integer> map = new HashMap<>();
+
+
+        for(String s : arr){
+            map.put(s, map.getOrDefault(s,0) + 1);
+        }
+
+        int count = 0;
+
+        for(String s : arr){
+            if(map.get(s) == 1){
+                count++;
+                if(count == k){
+                    System.out.println(s);
+                    return;
+                }
+            }
+        }
+
+        System.out.println(-1);
+    }
+}
